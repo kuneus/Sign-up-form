@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Odin Project Sign-up Form</title>
+</head>
+<body>
+    <div class="leftContainer">
+        <div class="leftHeading"><span>ODIN</span></div>
+        <div>Photo by Kuni Nishimura</div>
+    </div>
+    <div class="rightContainer">
+        <div class="header">
+            <div class="caption">This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</div>
+            <p>You <em>know</em> you want to.</p>
+        </div>
+        <form action="" method="get">
+            <div class="formStyle">
+                <p>Let's do this!</p>
+                <p id="require-message">Fields marked with an asterisk (*) are required.</p>
+                <div class="row">
+                    <div class="label-group">
+                        <label for="fName" class="required">FIRST NAME</label>
+                        <input type="text" name="fName" id="fName" required class="requiredInput">
+                    </div>
+                    <div class="label-group">
+                        <label for="lName">LAST NAME</label>
+                        <input type="text" name="lName" id="lName">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="label-group">
+                        <label for="email" class="required">EMAIL</label>
+                        <input type="email" name="email" id="email" required class="requiredInput">
+                    </div>
+                    <div class="label-group">
+                        <label for="phone">PHONE</label>
+                        <input type="tel" name="phone" id="phone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="label-group">
+                        <label for="pword" class="required">PASSWORD</label>
+                        <input type="password" name="pword" id="pword" required class="requiredInput"><span class="pwordMatch">✔︎</span>
+                    </div>
+                    <div class="label-group">
+                        <label for="pword-confirm" class="required">CONFIRM PASSWORD</label>
+                        <input type="password" name="pword-confirm" id="pword-confirm" required class="requiredInput"><span class="pwordMatch" id="pword2">✔︎</span>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+        <div id="logIn">Already have an account? <a href="">LOG IN</a></div>
+    </div>
+    <script>
+        //add red border around required inputs if left empty after focusing on it
+        const inputs = document.getElementsByClassName('requiredInput');
+        for (const input of inputs ){
+                input.addEventListener("focusout", function() {
+                    if(input.value === ''){
+                        input.style.border = '1px solid red';
+                    } else {
+                        input.style.border = '1px solid rgb(207, 207, 207)';
+                    }
+                })
+            };
+        
+        //regular expression for email validation and add red border if invalid after focusing on it
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        const email = document.getElementById('email');
+        email.addEventListener("focusout", function(){
+            if (email.value.match(emailRegex)) {
+                email.style.border = '1px solid rgb(207, 207, 207)';
+            } else {
+                email.style.border = '1px solid red';
+            }
+        });
+
+        const pword = document.getElementById('pword');
+        const pwordConfirm = document.getElementById('pword-confirm');
+        const pwordChecks = document.getElementsByClassName('pwordMatch');
+        const pword2 = document.getElementById('pword2');
+        pwordConfirm.addEventListener('focusout', function(){
+            if (pwordConfirm.value != pword.value) {
+                pwordConfirm.style.border = '1px solid red';
+                pword2.textContent = '✖︎';
+                pword2.style.color = 'red';
+                pword2.style.visibility = 'visible';
+            } else if (pwordConfirm.value != ''){
+                pwordConfirm.style.border = '1px solid green';
+                pword2.textContent = '✔︎';
+                pword2.style.color = 'green';
+                pword2.style.visibility = 'visible';
+            }
+        });
+        pword.addEventListener('focusout', function(){
+            if (pwordConfirm.value != '') {
+                if (pwordConfirm.value != pword.value) {
+                    pwordConfirm.style.border = '1px solid red';
+                    pword2.textContent = '✖︎';
+                    pword2.style.color = 'red';
+                    pword2.style.visibility = 'visible';
+                } else if (pwordConfirm.value != ''){
+                    pwordConfirm.style.border = '1px solid green';
+                    pword2.textContent = '✔︎';
+                    pword2.style.color = 'green';
+                    pword2.style.visibility = 'visible';
+                }
+            }
+        }); 
+    
+    </script>
+</body>
+</html>

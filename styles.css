@@ -1,0 +1,188 @@
+
+@import url('https://fonts.cdnfonts.com/css/runy-tunes-revisited-nf');
+@import url('https://fonts.cdnfonts.com/css/ikka-rounded');
+@import url('https://fonts.cdnfonts.com/css/axial-cut?styles=152102');
+
+body {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.leftContainer {
+    width: 40vw;
+    height: 100vh;
+    background-image: url(yosemite.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: -600px;
+}
+
+.leftHeading {
+    position: relative;
+    color: white;
+    top: 19vh;
+    height: 18vh;
+    font-size: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: 'Runy Tunes Revisited NF';
+    letter-spacing: 6px;
+}
+
+/* styling for footer */
+.leftHeading + div {
+    position: relative;
+    top: 79vh;
+    color: white;
+    text-align: left;
+    text-shadow: 0px 0px 3px green;
+    font-size: 1rem;
+    margin-left: 15px;
+}
+
+.leftHeading::before {
+    background-image: url(odin-lined.png);
+    content: "";
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 135px;
+    background-size: cover;
+    position: relative;
+}
+
+.rightContainer {
+    width: 65vw;
+    background-color: rgb(247, 247, 247);
+    height: 100vh;
+}
+
+.header {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    width: 60%;
+    font-family: 'Ikka Rounded';
+    font-size: clamp(1rem,1.6vw,2.2vw);
+    padding-bottom: 50px;
+    height: 19vh; /*this lines up the form with the transparent dark background of left header*/
+}
+
+
+.formStyle {
+    background-color: white;
+    box-shadow: 0px 3px 5px 0px rgb(194, 194, 194);
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+/*Style form caption*/
+.formStyle>p {
+    font-family: 'Ikka Rounded';
+    font-size: 1.3rem;
+}
+
+#require-message {
+    font-size: 0.8rem;
+    color: gray;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+label {
+    font-family: 'Axial cut';
+    font-weight: 700;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.label-group {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    width: max(20%, 100px);
+    position: relative;
+}
+
+input {
+    border: 1px solid rgb(207, 207, 207);
+    appearance: none;
+    width: 100%;
+    line-height: 25px;
+    border-radius: 3px;
+    position: relative;
+    text-indent: 3px;
+}
+
+.pwordMatch {
+    position: absolute;
+    color: green;
+    right: -25px;
+    top: 20px;
+    visibility: hidden;
+}
+
+.required::after {
+    content: "*";
+    color:red;
+    font-size: 25px;
+    position: absolute;
+    bottom: -5px;
+    margin-left: 3px;
+}
+
+input:focus,
+input:active {
+    appearance: none;
+    outline: none;
+    border: solid 1px blue;
+    box-shadow: 3px 3px 10px gray;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.row:last-child {
+    padding-bottom: 50px;
+}
+
+button,
+.header,
+#logIn,
+.formStyle>p {
+    margin-left: 40px;
+}
+
+button {
+    padding: 7px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(69, 118, 1);
+    background: linear-gradient(120deg, #829e08 0%, #00852a 100%);
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 5px gray;
+}
+
+button:hover,
+button:focus,
+button:active {
+    filter: brightness(130%);
+    transform: scale(1.1);
+}
+
+a {
+    color: rgb(69, 118, 1);
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    font-size: 1.1rem;
+}
