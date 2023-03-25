@@ -1,5 +1,7 @@
 # Sign-up-form
 
+Live preview link:  https://kuneus.github.io/Sign-up-form/
+
 This is part of The Odin Project's Sign Up Form project. 
 
 This form was made with HTML, CSS, and Javascript. Completion of this project required knowledge of forms and client-side form validation through built-in HTML validations and custom validations through Javascript. 
